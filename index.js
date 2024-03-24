@@ -8,13 +8,15 @@ const add_not = require('./models/add_notas')
     app.engine('handlebars', engine({defaultLayout: 'main'}))
     app.set('view engine', 'handlebars')
 
+//configurando páginas estáticas
+    app.use(express.static('public'))
 //BodyParsern
     app.use(BodyParser.urlencoded({extended: false}))
     app.use(BodyParser.json())
 
 //rotas
     app.get('/', function(req, res){ //home
-        res.render('home');
+        res.render('home', {style: 'home.css' });
     })
 
     app.get("/lista_notas", function(req, res){ //pag notas (prof)
