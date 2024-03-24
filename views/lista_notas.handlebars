@@ -1,0 +1,11 @@
+<h1>listas de notas:</h1>
+
+{{#each add_not}}
+    aluno: {{dataValues.aluno}}<br>
+    disciplinas: {{dataValues.disciplina}}<br>
+    av1: {{dataValues.AV1}}<br>
+    av2: {{dataValues.AV2}}<br>
+    <br>
+    <a href="/deletar/{{dataValues.id}}"><button>deletar</button></a>
+    <hr>    
+{{/each}}
