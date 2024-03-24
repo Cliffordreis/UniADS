@@ -51,6 +51,10 @@ const add_not = require('./models/add_notas')
         })
     });
 
+    app.get('/cadastro', function(req, res){
+        res.render('cadastro')
+    })
+
 
 app.listen(8081, function(){
     console.log("servidor rodando na url http://localhost:8081");

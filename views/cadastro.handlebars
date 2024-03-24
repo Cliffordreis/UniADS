@@ -1,0 +1,43 @@
+<form id="formulario_cad" action="" method="post">
+                    <div id="titulo" class="">
+                        <label class="form-label">Cadastre-se</label>
+                    </div>
+                    <div>
+                        <input type="name" class="form-control" placeholder="Digite seu nome e sobrenome" autocomplete="on" pattern="^[A-Za-z]{2,}\s[A-Za-z]{2,}$" required>
+                    </div>
+                    <div>
+                        <input type="email" class="form-control" id="email_cad" placeholder="Digite seu Email" autocomplete="on" required>
+                    </div>
+                    <div>
+                        <input type="email" class="form-control" id="email_conf" placeholder="Confirme seu email" autocomplete="on" required>
+                    </div>
+                    <div>
+                        <input type="password" id="senha_cad" class="form-control" placeholder="Digite sua senha" required>
+                    </div>
+                    <div>
+                        <input type="password" id="senha_conf" class="form-control" placeholder="Confirme sua senha">
+                    </div>
+                    <div>
+                        <input type="text" id="numeroCelular" class="form-control" placeholder="Digite seu numero de celular" autocomplete="on" maxlength="13">
+                    </div>
+                    <div>
+                    <label style="margin-top: 7px;">Gênero:</label>
+                    <select class="form-control" required>
+                        <option>selecionar</option>
+                        <option>Masculino</option>
+                        <option>Feminino</option>
+                        <option>Prefiro não declarar</option>
+                    </select>
+                     </div>
+                    <div>
+                        <input id="cep" class="form-control" type="text" placeholder="Digite seu CEP" autocomplete="on" maxlength="8">
+                    </div>
+                    {{!-- <div>
+                        <input id="check_cad"  type="checkbox" style="margin-top: 15px;" >
+                        <a href="#" style="margin-left: 5px;">Aceita os nossos termos e condições</a> 
+                    </div> --}}
+                    <div style="text-align: center; margin-top: 10px;">
+                    <button type="submit" id="bnt_form" class="btn btn-danger" >confirmar </button>
+                    </div>
+                    </div>
+</form>
