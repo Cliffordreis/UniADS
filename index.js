@@ -4,6 +4,10 @@ const {engine} = require('express-handlebars')
 const BodyParser = require('body-parser')
 const add_not = require('./models/add_notas')
 const add_cad = require('./models/add_cad')
+app.locals.logado = false;
+app.locals.user;
+
+//modelo login/logout
 
 //config template engine
     app.engine('handlebars', engine({defaultLayout: 'main'}))
@@ -72,6 +76,34 @@ const add_cad = require('./models/add_cad')
 
     app.get('/login', function(req, res){ //pag de cadastro login
         res.render('login')
+    })
+
+    app.post('/login_concluido', function(req, res){ //autenticação do login 
+        const email = req.body.login
+        const senha = req.body.senha
+        add_cad.findOne({
+            atributes: ['nome'],
+            where: {
+                email : email,
+                senha : senha
+            }
+        }).then(function(resposta){
+            if(resposta){
+                app.locals.user = resposta.nome
+                res.redirect('/')
+                app.locals.logado = true;
+            }else{
+                res.render('login', { error: 'credenciais não condizem com o banco de dados'});
+            }
+            
+        }).catch(function(err){
+            res.send("erro" + err)
+        })
+    })
+
+    app.get('/logout', function(req,res){ //rota para logout de usuário
+        app.locals.logado = false;
+        res.redirect('/');
     })
 
 

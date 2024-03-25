@@ -1,4 +1,11 @@
-<form action="" method="post">
-    <input name="login" placeholder="digite seu email">
-    <input name="senha" placeholder="digite sua senha">
+{{#if error}}
+<p style="color: brown;">{{error}}</p>
+{{/if}}
+
+<form action="/login_concluido" method="post">
+    <input name="login" placeholder="digite seu email" required>
+    <input name="senha" placeholder="digite sua senha" required>
+    <br>
+    <br>
+    <a href=""><button>login</button></a>
 </form>
