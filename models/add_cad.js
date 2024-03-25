@@ -1,20 +1,20 @@
 const db = require('./db')
 
-const add_not = db.sequelize.define('add_notas', {
-    aluno: { 
+const add_cad = db.sequelize.define('add_cad', {
+    nome: { 
         type: db.Sequelize.STRING 
     },
-    disciplina: {
+    email: {
         type: db.Sequelize.STRING
     },
-    AV1: {
+    senha: {
         type: db.Sequelize.STRING
     },
-    AV2: {
+    cpf: {
         type: db.Sequelize.STRING
     }
 })
 
-// add_not.sync({force: true})
+//add_cad.sync({force: true})
 
-module.exports= add_not;
+module.exports= add_cad;

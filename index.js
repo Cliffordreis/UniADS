@@ -3,6 +3,7 @@ const app = express();
 const {engine} = require('express-handlebars')
 const BodyParser = require('body-parser')
 const add_not = require('./models/add_notas')
+const add_cad = require('./models/add_cad')
 
 //config template engine
     app.engine('handlebars', engine({defaultLayout: 'main'}))
@@ -51,8 +52,26 @@ const add_not = require('./models/add_notas')
         })
     });
 
-    app.get('/cadastro', function(req, res){
+    app.post("/cad_concluido", function(req, res){ //conclusão cadastramento
+        add_cad.create({
+            nome : req.body.nome,
+            email: req.body.email,
+            senha: req.body.senha,
+            cpf: req.body.cpf
+        }).then(function(){
+            res.redirect('/login')
+        }).catch(function(err){
+            res.send("houve um erro" + err)
+        })
+    });
+
+
+    app.get('/cadastro', function(req, res){ //página de cadastro
         res.render('cadastro')
+    })
+
+    app.get('/login', function(req, res){ //pag de cadastro login
+        res.render('login')
     })
 
 
