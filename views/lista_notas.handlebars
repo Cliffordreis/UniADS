@@ -1,11 +1,20 @@
-<h1>listas de notas:</h1>
-
+<div class="card mx-auto mt-4" style="width: 28rem; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.259);">
+    <div class="card-body">
+<h1>Listas de Notas:</h1>
 {{#each add_not}}
-    aluno: {{dataValues.aluno}}<br>
-    disciplinas: {{dataValues.disciplina}}<br>
-    av1: {{dataValues.AV1}}<br>
-    av2: {{dataValues.AV2}}<br>
-    <br>
-    <a href="/deletar/{{dataValues.id}}"><button>deletar</button></a>
-    <hr>    
+    <div class="card" style="">
+        <div class="card-header">
+            Aluno: {{dataValues.aluno}}
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Disciplina: {{dataValues.disciplina}}</li>
+                <li class="list-group-item">AV1: {{dataValues.AV1}}</li>
+                <li class="list-group-item">AV2: {{dataValues.AV2}}</li>
+            </ul>
+        </div>
+        <br>
+        <a href="/deletar/{{dataValues.id}}"><button class="btn btn-danger">Deletar</button></a>
+        <hr>    
 {{/each}}
+    </div>
+</div>

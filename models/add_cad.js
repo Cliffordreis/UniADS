@@ -15,6 +15,6 @@ const add_cad = db.sequelize.define('add_cad', {
     }
 })
 
-//add_cad.sync({force: true})
+//cdadd_cad.sync({force: true})
 
 module.exports= add_cad;

@@ -103,6 +103,7 @@ app.locals.user;
 
     app.get('/logout', function(req,res){ //rota para logout de usuário
         app.locals.logado = false;
+        app.locals.user = null;
         res.redirect('/');
     })
 

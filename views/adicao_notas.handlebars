@@ -1,16 +1,26 @@
-<form action="/add_concluido" method="POST">
-    <p>Aluno </p>
-    <input type="text" name="aluno">
-
-    <p>Disciplina:</p>
-    <input type="text" name="disciplina">
-
-    <p>AV1: </p>
-    <input type="text" name="av1">
-
-    <p>AV2: </p>
-    <input type="text" name="av2">
-
-    <button type="submit">Enviar</button>
-
-</form>
+<div class="card mx-auto mt-4" style="width: 28rem; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.259);">
+    <div class="card-body">
+        <h1>Adicionar notas:</h1>
+        <hr>
+        <form action="/add_concluido" method="POST">
+            <div class="mb-3">
+                <p class="form-label">Aluno:</p>
+                <input class="form-control" type="text" name="aluno">
+            </div>
+            <div class="mb-3">
+                <p class="form-label">Disciplina:</p>
+                <input class="form-control" type="text" name="disciplina">
+            </div>
+            <div class="mb-3">
+                <p class="form-label">AV1: </p>
+                <input class="form-control" type="text" name="av1">
+            </div>
+            <div class="mb-3">
+                <p class="form-label">AV2: </p>
+                <input class="form-control" type="text" name="av2">
+            </div>
+            <br><br>
+            <button class="btn btn-success" type="submit">Enviar</button>
+        </form>
+    </div>
+</div>

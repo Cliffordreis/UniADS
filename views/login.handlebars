@@ -2,10 +2,21 @@
 <p style="color: brown;">{{error}}</p>
 {{/if}}
 
-<form action="/login_concluido" method="post">
-    <input name="login" placeholder="digite seu email" required>
-    <input name="senha" placeholder="digite sua senha" required>
-    <br>
-    <br>
-    <a href=""><button>login</button></a>
-</form>
+<div class="card mx-auto mt-4" style="width: 28rem; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.259);">
+    <div class="card-body">
+        <h1>Login</h1>
+        <hr>
+        <form action="/login_concluido" method="post">
+            <div class="mb-3">
+                <p class="form-label">Email:</p>
+                <input class="form-control" name="login" type="email" placeholder="email@mail" required>
+            </div>
+            <div class="mb-3">
+                <p>Senha:</p>
+                <input class="form-control" name="senha" type="password" placeholder="digite sua senha" required>
+            </div>
+            <br>
+            <button class="btn btn-dark">login</button>
+        </form>
+    </div>
+</div>
