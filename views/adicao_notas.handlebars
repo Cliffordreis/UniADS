@@ -1,3 +1,11 @@
+{{#if nova_nota}}
+<div class="alert alert-success mx-auto mt-4" role="alert" style="max-width: 500px;" >
+  <div style="text-align: center;">
+    {{nova_nota}}
+  </div>    
+</div>
+{{/if}}
+
 <div class="card mx-auto mt-4" style="width: 28rem; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.259);">
     <div class="card-body">
         <h1>Adicionar notas:</h1>
@@ -5,19 +13,19 @@
         <form action="/add_concluido" method="POST">
             <div class="mb-3">
                 <p class="form-label">Aluno:</p>
-                <input class="form-control" type="text" name="aluno">
+                <input class="form-control" type="text" name="aluno" required>
             </div>
             <div class="mb-3">
                 <p class="form-label">Disciplina:</p>
-                <input class="form-control" type="text" name="disciplina">
+                <input class="form-control" type="text" name="disciplina" required>
             </div>
             <div class="mb-3">
                 <p class="form-label">AV1: </p>
-                <input class="form-control" type="text" name="av1">
+                <input class="form-control" type="text" name="av1" required>
             </div>
             <div class="mb-3">
                 <p class="form-label">AV2: </p>
-                <input class="form-control" type="text" name="av2">
+                <input class="form-control" type="text" name="av2" required>
             </div>
             <br><br>
             <button class="btn btn-success" type="submit">Enviar</button>

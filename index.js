@@ -6,6 +6,7 @@ const add_not = require('./models/add_notas')
 const add_cad = require('./models/add_cad')
 app.locals.logado = false;
 app.locals.user;
+var timer = 10;
 
 //modelo login/logout
 
@@ -25,9 +26,14 @@ app.locals.user;
     })
 
     app.get("/lista_notas", function(req, res){ //pag notas (prof)
+        if(app.locals.logado){
         add_not.findAll({order: [['aluno', 'ASC']]}).then(function(add_not){
             res.render('lista_notas', {add_not: add_not});
         })
+        }else{
+            res.redirect('/')
+        }
+
     });
 
     app.get('/deletar/:id', function(req, res){  //rt para deletar lista no lista_notas
@@ -40,7 +46,11 @@ app.locals.user;
     
 
     app.get("/add_notas", function(req, res){ //página adição de notas professor
+        if(app.locals.logado){
         res.render('adicao_notas');
+        }else{
+            res.redirect('/')
+        }
     }); 
 
     app.post("/add_concluido", function(req, res){ //conclusão form adição de notas professor
@@ -50,7 +60,8 @@ app.locals.user;
             AV1: req.body.av1,
             AV2: req.body.av2
         }).then(function(){
-            res.redirect('/add_notas')
+            res.render('adicao_notas', {nova_nota:'nota adicionada!'});
+
         }).catch(function(err){
             res.send("houve um erro" + err)
         })
@@ -63,7 +74,7 @@ app.locals.user;
             senha: req.body.senha,
             cpf: req.body.cpf
         }).then(function(){
-            res.redirect('/login')
+            res.render('cadastro', {cadastrado:'cadastro concluído!'});
         }).catch(function(err){
             res.send("houve um erro" + err)
         })
@@ -93,7 +104,7 @@ app.locals.user;
                 res.redirect('/')
                 app.locals.logado = true;
             }else{
-                res.render('login', { error: 'credenciais não condizem com o banco de dados'});
+                res.render('login', { error:'credenciais não condizem com o banco de dados!'});
             }
             
         }).catch(function(err){

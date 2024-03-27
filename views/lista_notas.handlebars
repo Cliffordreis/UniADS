@@ -2,6 +2,7 @@
     <div class="card-body">
 <h1>Listas de Notas:</h1>
 {{#each add_not}}
+    <hr>
     <div class="card" style="">
         <div class="card-header">
             Aluno: {{dataValues.aluno}}
@@ -13,8 +14,7 @@
             </ul>
         </div>
         <br>
-        <a href="/deletar/{{dataValues.id}}"><button class="btn btn-danger">Deletar</button></a>
-        <hr>    
+        <a href="/deletar/{{dataValues.id}}"><button class="btn btn-danger">Deletar</button></a>    
 {{/each}}
     </div>
 </div>
