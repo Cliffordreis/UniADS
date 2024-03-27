@@ -13,22 +13,39 @@
         <form action="/add_concluido" method="POST">
             <div class="mb-3">
                 <p class="form-label">Aluno:</p>
-                <input class="form-control" type="text" name="aluno" required>
+                <input class="form-control" type="text" name="aluno" pattern="^[A-Za-z]{2,}\s[A-Za-z]{2,}$" placeholder="nome e sobrenome" required>
             </div>
             <div class="mb-3">
                 <p class="form-label">Disciplina:</p>
-                <input class="form-control" type="text" name="disciplina" required>
+                <select name="disciplina" class="form-control" required>
+                        <option></option>
+                        <option>Back-end</option>
+                        <option>Front-end</option>
+                        <option>Banco de dados</option>
+                        <option>Java POO</option>
+                        <option>Desenvolvimento mobile</option>
+                </select>
             </div>
             <div class="mb-3">
                 <p class="form-label">AV1: </p>
-                <input class="form-control" type="text" name="av1" required>
+                <input class="form-control" type="text" name="av1" required maxlength="4" oninput="validarInput(this)" placeholder="00,0 - 10,0" pattern="^(10(\,0)?|([0-9](\,[0-9])?))$">
             </div>
             <div class="mb-3">
                 <p class="form-label">AV2: </p>
-                <input class="form-control" type="text" name="av2" required>
+                <input class="form-control" type="text" name="av2" required maxlength="4" oninput="validarInput(this)" placeholder="00,0 - 10,0" pattern="^(10(\,0)?|([0-9](\,[0-9])?))$">
             </div>
             <br><br>
             <button class="btn btn-success" type="submit">Enviar</button>
         </form>
     </div>
 </div>
+
+<script>
+         function validarInput(input) {
+        // impedir caracteres e fazer regra da vírgula
+        input.value = input.value.replace(/[^0-9,]/g, '');
+        input.value = input.value.replace(/,/g, m => {
+            return input.value.indexOf(m) == 2 ? m : '';
+        });
+         }
+</script>

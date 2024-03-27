@@ -112,6 +112,14 @@ var timer = 10;
         })
     })
 
+    app.get('/perfil', function(req,res){ //pagina perfil
+        if(app.locals.logado){
+            res.render('perfil');
+        }else{
+            res.redirect('/');
+        }
+    })
+
     app.get('/logout', function(req,res){ //rota para logout de usuário
         app.locals.logado = false;
         app.locals.user = null;
