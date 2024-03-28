@@ -6,9 +6,7 @@ const add_not = require('./models/add_notas')
 const add_cad = require('./models/add_cad')
 app.locals.logado = false;
 app.locals.user;
-var timer = 10;
-
-//modelo login/logout
+const { Op } = require("sequelize"); //para requisições "or"
 
 //config template engine
     app.engine('handlebars', engine({defaultLayout: 'main'}))
@@ -68,17 +66,47 @@ var timer = 10;
     });
 
     app.post("/cad_concluido", function(req, res){ //conclusão cadastramento
-        add_cad.create({
-            nome : req.body.nome,
-            email: req.body.email,
-            senha: req.body.senha,
-            cpf: req.body.cpf
-        }).then(function(){
-            res.render('cadastro', {cadastrado:'cadastro concluído!'});
-        }).catch(function(err){
-            res.send("houve um erro" + err)
+        const email = req.body.email
+        const cpf = req.body.cpf
+        add_cad.findOne({
+            where: { 
+                [Op.or]:[
+                {email : email}, {cpf : cpf}
+                ]
+        }
+        }).then(result => {
+            if (result) {
+                res.render('cadastro', { existente: 'Já existe uma conta com este email/cpf no banco de dados!' });
+            } else {
+                add_cad.create({
+                            nome : req.body.nome,
+                            email: req.body.email,
+                            senha: req.body.senha,
+                            cpf: req.body.cpf
+                        }).then(function(){
+                            res.render('login', {cadastrado:'cadastro concluído!'});
+                        }).catch(function(err){
+                            res.send("houve um erro" + err)
+                        }).catch(function(err){
+                            res.send('erro' + err)
+                        })
+                    
+            }
         })
-    });
+    });       
+        
+        
+    //     add_cad.create({
+    //         nome : req.body.nome,
+    //         email: req.body.email,
+    //         senha: req.body.senha,
+    //         cpf: req.body.cpf
+    //     }).then(function(){
+    //         res.render('cadastro', {cadastrado:'cadastro concluído!'});
+    //     }).catch(function(err){
+    //         res.send("houve um erro" + err)
+    //     })
+    // });
 
 
     app.get('/cadastro', function(req, res){ //página de cadastro
