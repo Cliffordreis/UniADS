@@ -1,12 +1,12 @@
 {{#if existente}}
-<div class="alert alert-danger mx-auto mt-4 " role="alert" style="max-width: 500px;" >
+<div class="alert alert-danger mx-auto mt-4 " role="alert" style="max-width: 500px;">
     <div style="text-align: center;">
         {{existente}}
     </div>    
 </div>
 {{/if}}
 
-<div class="card mx-auto mt-4" style="width: 28rem; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.259);">
+<div class="card mx-auto mt-4" style="max-width: 28rem; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.259);">
     <div class="card-body">
         <h1>Cadastre-se:</h1>
         <hr>
@@ -20,28 +20,26 @@
                 <input name="email" type="email" class="form-control" id="email_cad" placeholder="email@mail" autocomplete="on" required>
             </div>
             <div class="mb-3">
-                <p class="form-label">Confirme seu Email:</p>
-                <input type="email" class="form-control" id="email_conf" placeholder="email@mail" autocomplete="on" required>
+                <p  class="form-label">Confirme seu Email:</p>
+                <input name="confirmacao_email" type="email" class="form-control" id="email_conf" placeholder="email@mail" autocomplete="on" required>
             </div>
             <div class="mb-3">
                 <p class="form-label">Senha:</p>
-                <input name="senha" type="password" id="senha_cad" class="form-control" placeholder="Digite sua senha" required>
+                <input name="senha" type="password" id="senha_cad" class="form-control" placeholder="Digite sua senha" maxlength="10" minlength="8" required>
+                <p style="text-align: center;">sua senha deve conter no mínimo 8 digitos!</p>
             </div>
             <div class="mb-3">
                 <p class="form-label">Confirme sua Senha:</p>
-                <input type="password" id="" class="form-control" placeholder="Confirme sua senha">
+                <input name="confirmacao_senha" type="password" id="senha_conf" class="form-control" placeholder="Confirme sua senha" maxlength="10" minlength="8" required>
             </div>
             <div class="mb-3">
                 <p class="form-label">CPF:</p>
-                <input name="cpf" type="" id="" class="form-control" placeholder="Digite seu CPF">
+                <input id="cpf" name="cpf" type="" id="" class="form-control" placeholder="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" maxlength="14">
             </div>
-            {{!-- <div>
-                <input id="check_cad"  type="checkbox" style="margin-top: 15px;" >
-                <a href="#" style="margin-left: 5px;">Aceita os nossos termos e condições</a> 
-            </div> --}}
             <div style="text-align: center; margin-top: 10px;">
-                <button type="submit" id="bnt_form" class="btn btn-dark" >Confirmar </button>
+                <button type="submit" id="btn_form" class="btn btn-dark">Confirmar</button>
             </div>
         </form>
     </div>
 </div>
+

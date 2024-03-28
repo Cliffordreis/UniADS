@@ -8,11 +8,18 @@ const add_not = db.sequelize.define('add_notas', {
         type: db.Sequelize.STRING
     },
     AV1: {
-        type: db.Sequelize.STRING
+        type: db.Sequelize.DOUBLE
     },
     AV2: {
+        type: db.Sequelize.DOUBLE
+    },
+    media: {
+        type: db.Sequelize.DOUBLE
+    },
+    status: {
         type: db.Sequelize.STRING
     }
+
 })
 
 // add_not.sync({force: true})

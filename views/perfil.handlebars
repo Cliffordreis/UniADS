@@ -1,0 +1,33 @@
+
+{{#each add_cad}}
+    <div class="card mx-auto mt-4" style="max-width: 60rem; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.259);">
+    <div class="card-body">
+        <h1>Perfil</h1>
+        <hr>
+        <div class="mb-3">
+            <p class="form-label" style="font-size: x-large;">Nome e sobrenome:</p>
+            <p class="form-control" style="font-size: large;">{{dataValues.nome}}</p>
+        </div>
+        <div class="mb-3">
+            <p class="form-label" style="font-size: x-large;">Email: </p>
+            <p class="form-control" style="font-size: large;">{{dataValues.email}}</p>
+        </div>
+        <div class="mb-3">
+            <p class="form-label" style="font-size: x-large;">CPF: </p>
+            <p class="form-control" style="font-size: large;">{{dataValues.cpf}}</p>
+        </div>
+        <hr>
+        <div class="mb-3" style="text-align: center;">
+            {{!-- <p class="form-label" style="font-size: large;">encerrar conta</p>
+            <p style="font-size: large; color:red">Atenção! isso excluirá todos os dados dessa conta!</p>
+            <button class="btn btn-danger">Deletar</button> --}}
+            <form action="/excluir_cad/{{dataValues.id}}" onsubmit="return confirm('Tem certeza que deseja excluir sua conta?');">
+                <h4>Excluir Conta</h4>
+                <p style="font-size: large; color:red">Atenção! isso excluirá todos os dados dessa conta!</p>
+    
+                <button class="btn btn-danger" type="submit">Excluir Conta</button>
+            </form>
+        </div>
+    </div>
+</div>
+{{/each}}

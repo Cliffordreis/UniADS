@@ -6,7 +6,7 @@
 </div>
 {{/if}}
 
-<div class="card mx-auto mt-4" style="width: 28rem; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.259);">
+<div class="card mx-auto mt-4" style="max-width: 28rem; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.259);">
     <div class="card-body">
         <h1>Adicionar notas:</h1>
         <hr>
@@ -28,24 +28,26 @@
             </div>
             <div class="mb-3">
                 <p class="form-label">AV1: </p>
-                <input class="form-control" type="text" name="av1" required maxlength="4" oninput="validarInput(this)" placeholder="00,0 - 10,0" pattern="^(10(\,0)?|([0-9](\,[0-9])?))$">
+                <input class="form-control" type="text" name="av1" required maxlength="4" oninput="validarInput(this)" placeholder="00.0 - 10.0" pattern="^(10(\.0)?|0[0-9](\.)[0-9])$">
+
             </div>
             <div class="mb-3">
                 <p class="form-label">AV2: </p>
-                <input class="form-control" type="text" name="av2" required maxlength="4" oninput="validarInput(this)" placeholder="00,0 - 10,0" pattern="^(10(\,0)?|([0-9](\,[0-9])?))$">
+                <input class="form-control" type="text" name="av2" required maxlength="4" oninput="validarInput(this)" placeholder="00.0 - 10.0" pattern="^(10(\.0)?|0[0-9](\.)[0-9])$">
             </div>
-            <br><br>
-            <button class="btn btn-success" type="submit">Enviar</button>
+            <br>
+            <div style="text-align: center;">
+            <button class="btn btn-success" type="submit" >Enviar</button>
+            </div>
         </form>
     </div>
 </div>
 
-<script>
-         function validarInput(input) {
-        // impedir caracteres e fazer regra da vírgula
-        input.value = input.value.replace(/[^0-9,]/g, '');
-        input.value = input.value.replace(/,/g, m => {
-            return input.value.indexOf(m) == 2 ? m : '';
-        });
-         }
-</script>
+{{!-- <script>
+    function validarInput(input) {
+        // Impedir caracteres inválidos
+        input.value = input.value.replace(/[^0-9,.]/g, ''); // Permitindo números, ponto e vírgula
+        input.value = input.value.replace(/,/g, '.'); // Substituindo vírgulas por pontos
+    }
+</script> --}}
+
