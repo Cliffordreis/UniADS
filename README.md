@@ -10,8 +10,10 @@ Esse projeto foi um grande aprendizado, pois foi meu primeiro contato na prátic
 * Nodemon - Para atualização automática do Servidor
 * Express - Framework utilizada no projeto
 * Sequelize - ORM responsável pela criação de models e conexão com mysql
+* Handlebars - como processador de templates.
 * Mysql2 - para funcionamento do link com o Sequelize
 * Body-Parser - para transformar dados das requisições.
+
 
 ### características desenvolvidas no projeto:
 * Sistema de criação de cadastros:
