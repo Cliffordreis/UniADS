@@ -7,6 +7,7 @@ Esse projeto foi um grande aprendizado, pois foi meu primeiro contato na prátic
 
 ### Ferramentas que foram utilizadas : 
 * Node.js - Ferramenta para utilizar o JS no back-end
+* Nodemon - Para atualização automática do Servidor
 * Express - Framework utilizada no projeto
 * Sequelize - ORM responsável pela criação de models e conexão com mysql
 * Mysql2 - para funcionamento do link com o Sequelize
